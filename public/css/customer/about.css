@@ -1,0 +1,149 @@
+.avatar {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.fast_shhoping {
+    background-color: #fff;
+}
+
+.introduce {
+    position: relative;
+}
+
+.delivery {
+    position: absolute;
+    bottom: 0;
+}
+
+.our_team .card {
+    border: none !important;
+}
+
+.our_team svg {
+    opacity: 0.5;
+    color: gray;
+}
+
+.social_network svg:hover {
+    opacity: 1;
+}
+
+.social_network a {
+    text-decoration: none;
+}
+
+.instagram {
+    display: grid;
+    grid-template-columns: 19% 19% 19% 19% 19%;
+    grid-gap: 16px;
+}
+
+.instagram>.item_insta {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+
+.item_insta {
+    position: relative;
+}
+
+.like_comment {
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    position: absolute;
+    padding: 15px 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 12;
+    transition: 1s;
+}
+
+.item_insta:hover .like_comment {
+    opacity: 1;
+}
+
+.item_insta::after {
+    content: "";
+    background-color: #47454573;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
+
+.items_insta:hover .item_insta::after {
+    opacity: 1;
+}
+
+.swipers {
+    overflow: hidden;
+}
+
+.prev_next svg:hover {
+    color: gray;
+}
+
+@media screen and (max-width: 2000px) {
+    .delivery_1024 {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .delivery {
+        display: none !important;
+    }
+
+    .delivery_1024 {
+        display: flex !important;
+    }
+
+    .avatar {
+        margin: 20px 0;
+        padding: 10px;
+    }
+
+}
+
+@media screen and (max-width: 769px) {
+    .item_insta {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+    }
+
+    .our_team h4 {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .video_425 {
+        width: 100%;
+    }
+
+    .item_insta {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+    }
+
+    .margin_425 {
+        margin: 50px 0 !important;
+    }
+}
+
+@media screen and (max-width: 377px) {
+    .item_insta {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+    }
+
+    .margin_425 {
+        margin: 35px 0 !important;
+    }
+}
+
+@media screen and (max-width: 320px) {}

@@ -1,0 +1,47 @@
+.contact_left{
+    padding: 50px 0;
+}
+.contact_left p, .your_question p{
+    color: gray;
+}
+.contact_left h1, .your_question h1{
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.contact_left h4{
+    margin: 25px 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+tr{
+    border-style: hidden !important;
+}
+.table tbody{
+    border-style: unset !important;
+}
+.ip input{
+    padding: 10px;
+    border-radius: 0;
+}
+textarea{
+    border-radius: 0 !important;
+}
+.ip input:focus, .form-control{
+    box-shadow: none !important;
+    border-color: black !important;
+}
+.support_customer{
+    margin: 100px 0;
+}
+@media screen and (max-width: 1024px){
+    .support_customer{
+        margin: 50px 0;
+    }
+}
+@media screen and (max-width: 426px){
+    .support_customer{
+        margin: 20px 0;
+    }
+    .your_question h1{
+        font-size: 30px;
+    }
+}
