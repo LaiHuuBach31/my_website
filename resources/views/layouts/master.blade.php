@@ -335,13 +335,8 @@
                                     </div>
                                     @else
                                     <div class="cart_product">
-                                        <?php
-                                        $totalPriceCart = 0;
-                                        ?>
                                         @foreach($carts as $item)
-                                        <?php
-                                        $totalPriceCart += $item->total_price;
-                                        ?>
+                                        
                                         <div class="item_cart py-3">
                                             <div class="d-flex align-items-center">
                                                 <div class="col-lg-3">
@@ -388,7 +383,7 @@
                                         <div class="pay">
                                             <div class="d-flex align-items-center justify-content-between py-3 total">
                                                 <h5>Subtotal:</h5>
-                                                <h5>$ {{$totalPriceCart}}</h5>
+                                                <h5>$ {{$subTotal}}</h5>
                                             </div>
                                             <div class="text-center py-3">
                                                 <div class="view_cart">

@@ -32,7 +32,9 @@ class AppServiceProvider extends ServiceProvider
   
                 $check = Cart::where('cus_id', Auth::guard('cus')->user()->id)->count();
 
-                $view->with(compact('totalCart', 'carts', 'check'));
+                $subTotal = $carts->sum('total_price');
+
+                $view->with(compact('totalCart', 'carts', 'check', 'subTotal'));
             } else {
                 $carts = [];
                 $check = 0;

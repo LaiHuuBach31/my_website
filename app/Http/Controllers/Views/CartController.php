@@ -93,14 +93,29 @@ class CartController extends Controller
             return redirect()->route('cart.view');
         }
     }
-
+    
     public function updateQuantity(Request $request, Cart $cartItem)
     {
+        if($request->quantity_cart <= 0 || $request->quantity_cart != is_numeric($request->quantity_cart)) {
+            if ($request->quantity_cart == 0) {
+                $attrs = CartAttr::where('cart_id', $cartItem->id)->get();
+                foreach ($attrs as $value) {
+                    $value->delete();
+                }
+                $cartItem->delete();
 
-        $cartItem->quantity = $request->quantity_cart;
-        $cartItem->total_price = $request->quantity_cart * $cartItem->cart->price;
-        $cartItem->save();
-
+            } else{
+                $cartItem->quantity = 1;
+                $cartItem->total_price = $cartItem->cart->price;
+                $cartItem->save();
+            }
+           
+        } else {
+            $cartItem->quantity = $request->quantity_cart;
+            $cartItem->total_price = $request->quantity_cart * $cartItem->cart->price;
+            $cartItem->save();
+        }
+       
         return redirect()->route('cart.view');
     }
 

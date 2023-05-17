@@ -59,13 +59,9 @@
                                 </div>
                             </div>
                         </div>
-                        <?php
-                            $totalPriceCart = 0;
-                        ?>
+                        
                         @foreach($carts as $key => $item)
-                        <?php
-                            $totalPriceCart += $item->total_price;
-                        ?>
+                       
                         <div class="row title_tops list_products col-lg-12 col-md-12 col-sm-6">
                             <div class="col-lg-1 d-flex align-items-center col-md-1 col-sm-12 content_cart">
                                 <h5 class="id_cart">{{$key + 1}}</h5>
@@ -110,12 +106,12 @@
                                     <strong>$ {{$item->cart->price}}</strong>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-12">
-                                    <form action="{{route('cart.update_quantity', $item->id)}}" method="post">
+                                    <form action="{{route('cart.update_quantity', $item->id)}}" method="post" id="form{{$item->id}}">
                                         @csrf
                                         <div class="input ml-3">
-                                            <button type="submit" class="btn-fake btn left_ip" onclick="mark_cart('-', {{$item->id}})"><i class="fa-solid fa-minus"></i></button>
-                                            <input type="text" name="quantity_cart" value="{{$item->quantity}}" id="quantity{{$item->id}}">
-                                            <button type="submit" class="btn-fake btn right_ip" onclick="mark_cart('+', {{$item->id}})"><i class="fa-solid fa-plus"></i></button>
+                                            <button type="button" class="btn-fake btn left_ip" onclick="mark_cart('-', {{$item->id}})"><i class="fa-solid fa-minus"></i></button>
+                                            <input type="text" name="quantity_cart" value="{{$item->quantity}}" id="quantity{{$item->id}}" onblur="quantityCart({{$item->id}})">
+                                            <button type="button" class="btn-fake btn right_ip" onclick="mark_cart('+', {{$item->id}})"><i class="fa-solid fa-plus"></i></button>
                                         </div>
                                     </form>
                                 </div>
@@ -130,7 +126,7 @@
                         @endforeach
                         @if($check != 0)
                         <div class="pt-5 text-right">
-                            <h5 class="text-danger"><strong>Total Price : $ {{$totalPriceCart}}</strong></h5>
+                            <h5 class="text-danger"><strong>Total Price : $ {{$subTotal}}</strong></h5>
                         </div>
                         @endif
                     </div>
@@ -246,12 +242,12 @@
                             <h5>QUANTITY</h5>
                         </div>
                         <div class="col-sm-6 col-8 text-center">
-                            <form action="{{route('cart.update_quantity', $item->id)}}" method="post">
+                            <form action="{{route('cart.update_quantity', $item->id)}}" method="post" id="form{{$item->id}}"> 
                                 @csrf
                                 <div class="input ml-3">
-                                    <button type="submit" class="btn-fake btn left_ip" onclick="mark_cart_768('-', {{$item->id}})"><i class="fa-solid fa-minus"></i></button>
+                                    <button type="button" class="btn-fake btn left_ip" onclick="mark_cart_768('-', {{$item->id}})"><i class="fa-solid fa-minus"></i></button>
                                     <input type="text" name="quantity_cart" value="{{$item->quantity}}" id="quantity{{$item->id}}">
-                                    <button type="submit" class="btn-fake btn right_ip" onclick="mark_cart_768('+', {{$item->id}})"><i class="fa-solid fa-plus"></i></button>
+                                    <button type="button" class="btn-fake btn right_ip" onclick="mark_cart_768('+', {{$item->id}})"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </form>
                         </div>
