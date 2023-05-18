@@ -1,6 +1,22 @@
 @extends('layouts.master')
 @section('main')
 <div class="" style="margin-top: 100px;">
+    <div class="box">
+        <div class="box-body">
+            @if(Session::has('yes'))
+            <div class="alert alert-success" role="alert">
+                <strong>{{Session::get('yes')}}</strong>
+            </div>
+            @endif
+            @if(Session::has('no'))
+            <div class="alert alert-danger" role="alert">
+                <strong>{{Session::get('no')}}</strong>
+            </div>
+            @endif
+
+            @yield('main')
+        </div>
+    </div>
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
@@ -112,7 +128,7 @@
                                     <path d="M5 12l14 0"></path>
                                 </svg>
                             </button>
-                            <input type="text" value="1" name="quantity"  id="quantity">
+                            <input type="text" value="1" name="quantity" id="quantity" onblur="quantityDetail()" style="border: none;">
                             <button type="button" onclick="mark('+')">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>

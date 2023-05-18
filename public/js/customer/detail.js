@@ -9,3 +9,15 @@ function mark(e) {
     }
 }
 
+
+function quantityDetail() {
+
+    let result1 = document.getElementById('quantity');
+    if(result1.value <= 0) {
+        document.getElementById('quantity').value = 1;
+    }
+    if(isNaN(result1.value)) {
+        document.getElementById('quantity').value = 1;
+    }
+
+}

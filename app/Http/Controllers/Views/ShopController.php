@@ -91,13 +91,4 @@ class ShopController extends Controller
         return view('customer.detail', compact('product', 'images', 'attributes'));
     }
 
-    public function catePro(Category $cate)
-    {
-        $categories = Category::all();
-        $sizes = Attribute::where('name', 'size')->get();
-        $colors = Attribute::where('name', 'color')->get();
-        $products = Product::where('category_id', $cate->id)->paginate(8);
-
-        return view('customer.cate_pro', compact('categories', 'sizes', 'colors', 'products'));
-    }
 }

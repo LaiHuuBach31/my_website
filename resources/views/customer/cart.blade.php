@@ -246,7 +246,7 @@
                                 @csrf
                                 <div class="input ml-3">
                                     <button type="button" class="btn-fake btn left_ip" onclick="mark_cart_768('-', {{$item->id}})"><i class="fa-solid fa-minus"></i></button>
-                                    <input type="text" name="quantity_cart" value="{{$item->quantity}}" id="quantity{{$item->id}}">
+                                    <input type="text" name="quantity_cart" value="{{$item->quantity}}" id="quantity{{$item->id}}" onblur="quantityCart({{$item->id}})">
                                     <button type="button" class="btn-fake btn right_ip" onclick="mark_cart_768('+', {{$item->id}})"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </form>
